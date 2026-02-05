@@ -1,8 +1,6 @@
-# FastAPI Beyond CRUD 
+# Bookly
 
-This is the source code for the [FastAPI Beyond CRUD](https://youtube.com/playlist?list=PLEt8Tae2spYnHy378vMlPH--87cfeh33P&si=rl-08ktaRjcm2aIQ) course. The course focuses on FastAPI development concepts that go beyond the basic CRUD operations.
-
-For more details, visit the project's [website](https://jod35.github.io/fastapi-beyond-crud-docs/site/).
+Bookly is a **RESTful backend service** built with FastAPI, focusing on modular architecture, authentication, and database integration. The project is containerized with Docker for consistent development and production environments.
 
 ## Table of Contents
 
@@ -14,30 +12,32 @@ For more details, visit the project's [website](https://jod35.github.io/fastapi-
 6. [Contributing](#contributing)
 
 ## Getting Started
-Follow the instructions below to set up and run your FastAPI project.
+Follow the instructions below to set up and run Bookly on your local machine.
 
 ### Prerequisites
-Ensure you have the following installed:
+Make sure you have the following installed:
 
 - Python >= 3.10
 - PostgreSQL
 - Redis
+- Docker (optional, for containerized deployment)
 
 ### Project Setup
-1. Clone the project repository:
+1. Clone the repository:
     ```bash
-    git clone https://github.com/jod35/fastapi-beyond-CRUD.git
+    git clone https://github.com/mohamedabuenneel/Bookly.git
     ```
    
 2. Navigate to the project directory:
     ```bash
-    cd fastapi-beyond-CRUD/
+    cd Bookly/
     ```
 
 3. Create and activate a virtual environment:
     ```bash
-    python3 -m venv env
-    source env/bin/activate
+    python -m venv env
+    source env/Scripts/activate   # Windows
+    # source env/bin/activate     # Linux/Mac
     ```
 
 4. Install the required dependencies:
@@ -47,34 +47,22 @@ Ensure you have the following installed:
 
 5. Set up environment variables by copying the example configuration:
     ```bash
-    cp .env.example .env
+    copy .env.example .env       # Windows
+    # cp .env.example .env       # Linux/Mac
     ```
 
-6. Run database migrations to initialize the database schema:
+6. Run database migrations:
     ```bash
     alembic upgrade head
     ```
 
-7. Open a new terminal and ensure your virtual environment is active. Start the Celery worker (Linux/Unix shell):
+7. Start the Celery worker (if applicable):
     ```bash
     sh runworker.sh
     ```
 
 ## Running the Application
-Start the application:
+Start the FastAPI server:
 
 ```bash
 fastapi dev src/
-```
-Alternatively, you can run the application using Docker:
-```bash
-docker compose up -d
-```
-## Running Tests
-Run the tests using this command
-```bash
-pytest
-```
-
-## Contributing
-I welcome contributions to improve the documentation! You can contribute [here](https://github.com/jod35/fastapi-beyond-crud-docs).
